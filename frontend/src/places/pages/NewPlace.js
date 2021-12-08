@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Place = () => {
+const NewPlace = () => {
     return <h2>This is the Place page</h2>;
 }
 
-export default Place;
+export default NewPlace;

@@ -22,8 +22,8 @@ const DUMMY_PLACES = [
         imageUrl: 'https://lh5.googleusercontent.com/p/AF1QipOMAB7d2AGdQu-A6PU4jFMUfVAESsKvHwMmlZwf=w408-h272-k-no',
         address: '20 W 34th St, New York, NY 10001, United States',
         location:{
-            lat: 40.7484405,
-            lng: -73.9856644
+            lat: 40.7490988,
+            lng: -73.9850454
         },
         creator: 'u2'  
     }
