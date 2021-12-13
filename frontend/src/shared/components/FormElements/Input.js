@@ -15,11 +15,13 @@ const inputReducer = (state, action) => {
 };
 
 const Input = props => {
-
-    const [inputState, dispatch] = useReducer(inputReducer, {value: '', isValid: false});
+    const [inputState, dispatch] = useReducer(inputReducer, {
+        value: '', 
+        isValid: false
+    });
 
     const changeHandler = event => {
-        dispatch({type: 'CHANGE', val: event.target.value});
+        dispatch({type: 'CHANGE', val: event.target.value });
     };
 
     const element = props.element === 'input' ? (
@@ -42,7 +44,7 @@ const Input = props => {
     return <div className={`form-control ${!inputState.isValid && 'form-control--invalid'}`}>
         <label htmlFor={props.id}>{props.label}</label>
         {element}
-        {inputState.isValid && <p>{props.errorText}</p>}
+        {!inputState.isValid && <p>{props.errorText}</p>}
     </div>
 };
 
