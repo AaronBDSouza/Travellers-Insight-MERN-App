@@ -4,6 +4,7 @@ import Users from './user/pages/Users';
 import NewPlace from './places/pages/NewPlace';
 import UserPlaces from './places/pages/UserPlaces';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
+import UpdatePlace from './places/pages/UpdatePlace';
 
 const App = () => {
   /* For react-router-dom 6.0.2
@@ -28,9 +29,13 @@ const App = () => {
             <Route path="/:userId/places" exact>
               <UserPlaces/>
             </Route> 
+            {/* Always list "/places/new" before "/places/:placeId" */}
             <Route path="/places/new" exact>
               <NewPlace/>
             </Route>  
+            <Route path="/places/:placeId" exact>
+              <UpdatePlace/>
+            </Route>             
             <Redirect to="/" />      
           </Switch>
         </main>
