@@ -14,7 +14,7 @@ const DUMMY_PLACES = [
             lat: 40.7484405,
             lng: -73.9856644
         },
-        creator: 'u1' 
+        creator: '1234' 
     },
     {
         id: 'p2',
@@ -26,7 +26,7 @@ const DUMMY_PLACES = [
             lat: 40.7490988,
             lng: -73.9850454
         },
-        creator: 'u2'  
+        creator: '1234'  
     }
 ];
 
