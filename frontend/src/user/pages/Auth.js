@@ -54,7 +54,7 @@ const Auth = () =>  {
 
     return (
         <Card className="authentication">
-            <h2>Login Required</h2>
+            <h2>{isLoginMode ? 'Login Required' : 'Registration Required' }</h2>
             <hr/>
             <form onSubmit={authSubmitHandler}>
                 <label></label>
