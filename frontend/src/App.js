@@ -21,6 +21,43 @@ const App = () => {
     setIsLoggedIn(false);
   }, []);
 
+  let routes;
+
+  if (isLoggedIn) {
+    routes = (
+      <Switch>
+      <Route path="/" exact>
+        <Users/>
+      </Route>
+      <Route path="/:userId/places" exact>
+        <UserPlaces/>
+      </Route>
+      <Route path="/places/new" exact>
+        <NewPlace/>
+      </Route>  
+      <Route path="/places/:placeId" exact>
+        <UpdatePlace/>
+      </Route>
+      <Redirect to="/"/>      
+    </Switch>
+    );
+  } else {
+    routes = (
+    <Switch>
+      <Route path="/" exact>
+        <Users/>
+      </Route>
+      <Route path="/:userId/places" exact>
+        <UserPlaces/>
+      </Route>
+      <Route path="/auth">
+        <Auth/>
+      </Route>
+      <Redirect to="/auth"/>      
+    </Switch>
+    );
+  }
+
   /* For react-router-dom 6.0.2
   import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -34,29 +71,14 @@ const App = () => {
   </Router>;*/
 
     return (
-      <AuthContext.Provider value={{isLoggedIn: isLoggedIn, login: login, logout: logout}}>
+      <AuthContext.Provider 
+        value={{isLoggedIn: isLoggedIn, login: login, logout: logout}}
+      >
         <Router>
           <MainNavigation/>
             <main>
-              <Switch>
-                <Route path="/" exact>
-                  <Users/>
-                </Route>
-                <Route path="/:userId/places" exact>
-                  <UserPlaces/>
-                </Route> 
-                {/* Always list "/places/new" before "/places/:placeId" */}
-                <Route path="/places/new" exact>
-                  <NewPlace/>
-                </Route>  
-                <Route path="/places/:placeId" exact>
-                  <UpdatePlace/>
-                </Route>
-                <Route path="/auth">
-                  <Auth/>
-                </Route>                         
-                <Redirect to="/" />      
-              </Switch>
+              {/* Always list "/places/new" before "/places/:placeId" */}
+              {routes}  
             </main>
         </Router>
       </AuthContext.Provider>
